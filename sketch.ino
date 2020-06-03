@@ -24,16 +24,13 @@ void loop() {
     values[count] = value;
     count++;
   }
-  if(count == MAX_COUNT){
-    Serial.print("Mositure : ");
-    
+  if(count == MAX_COUNT){    
     for(int i = 0; i < MAX_COUNT; i++){
       avg += values[i];
     }
     avg /= MAX_COUNT;
     lcd.setCursor(0, 0);
     lcd.print("Moisture: ");
-    //lcd.setCursor(0, 0);
     lcd.print(avg);
     count = 0;
     avg = 0;
@@ -41,6 +38,7 @@ void loop() {
     lcd.setCursor(0,0);
     lcd.print("Analyzing ");
     lcd.print(count*10);
+    lcd.print("%");
   }
   delay(1000);
 }
